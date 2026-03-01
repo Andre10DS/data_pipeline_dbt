@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  sql-origem:
+    image: luizcarlosfaria/mssql-server-linux:2019-latest
+    container_name: sql-oltp-origem
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: 1
+      SA_PASSWORD: ${SA_PASSWORD_OLTP}
+      MSSQL_DATABASE: OLTP
+      MSSQL_DATABASE_COLLATE: SQL_Latin1_General_CP1_CI_AI
+      MSSQL_USER: ${USER_OLTP}
+      MSSQL_PASSWORD: ${PASSWORD_OLTP}
+    volumes:
+      - "sql_origem_data:/var/opt/mssql"
+      - ./oltp_init:/scripts
+    networks:
+      - data_network
+
+  sql-destino:
+    image: luizcarlosfaria/mssql-server-linux:2019-latest
+    container_name: sql-dw-destino
+    ports:
+      - "1434:1433"
+    environment:
+      ACCEPT_EULA: 1
+      SA_PASSWORD: ${SA_PASSWORD_DW}
+      MSSQL_DATABASE: DW
+      MSSQL_DATABASE_COLLATE: SQL_Latin1_General_CP1_CI_AI
+      MSSQL_USER: ${USER_DW}
+      MSSQL_PASSWORD: ${PASSWORD_DW}
+    volumes:
+      - "sql_destino_data:/var/opt/mssql"
+      - ./dw_init:/scripts
+    networks:
+      - data_network
+
+volumes:
+  sql_origem_data:
+  sql_destino_data:
+
+networks:
+  data_network:
+    driver: bridge

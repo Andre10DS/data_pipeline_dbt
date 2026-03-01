@@ -1,0 +1,15 @@
+dw_ciclo_01:
+  outputs:
+    dev:
+      driver: "ODBC Driver 18 for SQL Server"
+      database: DW
+      server: localhost
+      password: "{{ env_var('PASSWORD_DW') }}"
+      port: 1434
+      threads: 1
+      type: sqlserver
+      user: "{{ env_var('USER_DW') }}"
+      schema: dbo
+      encrypt: false
+      trust_cert: true
+  target: dev

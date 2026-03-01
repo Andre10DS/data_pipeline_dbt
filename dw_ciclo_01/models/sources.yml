@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: Staging
+    description: "Banco de dados operacional rodando no Docker"
+    database: DW
+    schema: StgO
+    tables:
+      - name: edicao
+        description: "Tabela bruta de edições de livros"
+        columns:
+          - name: isbn
+            tests:
+              - not_null
+              - unique
+      - name: livro
+        description: "Tabela bruta com as dados dos livros"
+        columns:
+          - name: livro_id
+            tests:
+              - not_null
+              - unique
+      - name: autor
+        description: "Tabela bruta dos autores"
+        columns:
+          - name: autor_id
+            tests:
+              - not_null
+              - unique
+      - name: conquista
+        description: "Tabela bruta das conquistas de cada livro"
+        columns:
+          - name: livro_id
+            tests:
+              - not_null
+      - name: venda
+        description: "Tabela bruta das conquistas de cada livro"
+        columns:
+          - name: isbn
+            tests:
+              - not_null
+
+
+

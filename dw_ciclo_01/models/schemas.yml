@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: Dim_author
+    description: "Dimensão autor com as inormações acerca do autor"
+    columns:
+      - name: autor_id
+        description: "Id do autor"
+        tests:
+          - not_null
+      - name: sk_author
+        description: "Chave primaria da dimensao autor"
+        tests:
+          - unique
+          - not_null
+
+  - name: Dim_conquest
+    description: "Dimensão das conquista que refere aos premios ganhos por cada livro"
+    columns:
+      - name: sk_conquista
+        description: "Chave primaria da dimensao premios"
+        tests:
+          - unique
+          - not_null
+
+
+  - name: Dim_edition
+    description: "Dimensão edição com as informações de cada edição"
+    columns:
+      - name: sk_edicao
+        description: "Chave primaria da dimensao edicao"
+        tests:
+          - unique
+          - not_null    
+
+
+  - name: Dim_book
+    description: "Dimensão livro com as informações sobre os livros"
+    columns:
+      - name: sk_livro
+        description: "Chave primária"
+        tests:
+          - unique
+          - not_null
+
+  - name: Fact_sales
+    description: "Fato com dados relacionados a venda"
+
+  - name: Dim_date
+    description: "Tabela de tempo para suporte a análises temporais (Star Schema)."
+    columns:
+      - name: date_key
+        description: "Chave primária no formato YYYYMMDD."
+        tests:
+          - unique
+          - not_null
+
+snapshots:
+  - name: sn_edicao
+    description: "Tabela de histórico (SCD2) que monitora mudanças de preço dos livros."
+    columns:
+      - name: isbn
+        description: "Chave natural da edição."
+        tests:
+          - not_null
+      - name: dbt_valid_from
+        description: "Data em que esta versão do registro começou a valer."
+      - name: dbt_valid_to
+        description: "Data em que esta versão expirou (null se for a atual)."
