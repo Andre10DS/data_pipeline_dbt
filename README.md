@@ -221,7 +221,6 @@ Este projeto demonstra uma arquitetura completa de Engenharia de Dados e Analyti
 ## 15. Próximos passos
 
  - Implementação de camada int_
- - Materialização incremental
  - Orquestração com Airflow
  - Deploy em cloud (Azure / AWS / GCP)
  - Integração com Power BI
