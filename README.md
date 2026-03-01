@@ -1,6 +1,6 @@
 
 
-![dbt](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/capa.png)
+![dbt](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/main/img/capa.png)
 
 
 ## Projeto: Data Warehouse de Vendas de Livros com dbt + SQL Server + Docker
@@ -33,7 +33,7 @@ A arquitetura contempla:
 
 
 
-![Arquitetura](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/Arquitetura.png)
+![Arquitetura](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/main/img/Arquitetura.png)
 
 # 3. Infraestrutura com Docker.
 
@@ -55,7 +55,7 @@ Cada um com sua base isolada:
 
 Para captura dos dados do banco OLTP e realizar a ingestão no banco DW foi utilizado o arquivo raw_ingestion.py:
 
-![python](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/python.png)
+![python](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/main/img/python.png)
 
 Responsável por:
 
@@ -67,14 +67,14 @@ Responsável por:
 ## 5. Estrutura do Projeto dbt
 
 
-![projeto_dbt](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/projeto_dbt.png)
+![projeto_dbt](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/main/img/projeto_dbt.png)
 
     
 ## 6. Snapshot – Controle de Mudança (SCD)
 
 Na tabela edição, a coluna preco pode sobrer alterações constantemente fazendo necessário a cosntrução de snapshot para guardar o histórico dos preços. Desta forma, fui utilizado o arquivo sn_edicao para realizar a construção da tabela snapshot.
 
-![sn_edicao](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/sn_edicao.png)
+![sn_edicao](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/main/img/sn_edicao.png)
 
 
 Tipo implementado:
@@ -103,13 +103,9 @@ Dimensões criadas:
   - Controle de integridade
   - Estrutura orientada a análise
 
-![sql_server](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/view_dim.png)
-  
 ## 8. Construção da Fato
 
 Fato criada:
-
-![fato](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/view_dim.png)
 
 Fonte:
 
@@ -122,6 +118,7 @@ Objetivo:
  - Consolidar métricas de negócio
 
 
+![sql_server](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/main/img/view_dim.png)
 
 ## 9. Sources.yml
 
@@ -135,7 +132,7 @@ Arquivo responsável por:
 
 Exemplo:
 
-![Sources](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/sources.png)
+![Sources](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/main/img/sources.png)
 
 
 ## 10. schema.yml
@@ -149,7 +146,7 @@ Responsável por:
  - Garantir qualidade
 
 
-![schema](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/schema.png)
+![schema](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/main/img/schema.png)
 
 
 
@@ -160,7 +157,7 @@ O arquivo Exposures permite mapear os consumidores dos produtos finais do dbt. D
 
 Exemplo:
 
-![Exposures](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/exposure.png)
+![Exposures](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/main/img/exposure.png)
 
 
 ## 12. Documentação
@@ -204,7 +201,7 @@ O comando cria um servidor web local que disponibiliza uma interface interativa 
   - Filtros de navegação
   - Dependências entre fontes, dimensões, fatos e relatórios
 
-![Lineage](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/img/Lineage.gif)
+![Lineage](https://raw.githubusercontent.com/Andre10DS/data_pipeline_dbt/main/img/Lineage.gif)
 
 ## 13. Testes e Qualidade de Dados
 
